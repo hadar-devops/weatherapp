@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- page info and Bootstrap -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100 bg-light">
+    <!-- main container to show the weather -->
+    <div class="container text-center">
+        <h1 class="mb-3">Weather in {{ location }}, {{ country }}</h1>
+
+        <!-- back button -->
+        <a href="/" class="btn btn-secondary mb-3">Choose other location</a>
+
+        <!-- table with weather info -->
+        <table class="table table-bordered table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Day Temperature</th>
+                    <th>Night Temperature</th>
+                    <th>Humidity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- goes over each day and shows its data -->
+                {% for day in weather_data %}
+                    <tr>
+                        <td>{{ day.date }}</td>
+                        <td>{{ day.temp_day }}</td>
+                        <td>{{ day.temp_night }}</td>
+                        <td>{{ day.humidity }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
